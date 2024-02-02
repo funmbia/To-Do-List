@@ -1,5 +1,5 @@
 /* Author: funmbia */
-/* Jan 19, 2024 */
+/* Updated: Feb 2, 2024 */
 
 *{
     margin: 0;
@@ -79,6 +79,8 @@ ul li {
     user-select: none;
     cursor: pointer;
     position: relative;
+    word-break: break-all;
+    text-wrap: balance;
 }
 
 ul li::before {
@@ -103,7 +105,7 @@ ul li.checked::before {
     background-image: url(images/checked.png);
 }
 
-ul li span {
+ul li span, ul li label  {
     position: absolute;
     right: 0;
     top: 5px;
@@ -115,6 +117,9 @@ ul li span {
     text-align: center;
     border-radius: 50%;
 }
-ul li span:hover {
+ul li span:hover, ul li label:hover {
     background: #edeef0;
+}
+ul li label {
+    right: 40px;
 }

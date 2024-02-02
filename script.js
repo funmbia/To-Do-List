@@ -1,5 +1,5 @@
 // Author: funmbia
-// Jan 19, 2024
+// Updated: Feb 2, 2024
 
 function getDate() {
     let today = new Date();
@@ -22,6 +22,9 @@ function addTask() {
         let li = document.createElement("li");
         li.innerHTML = inputBox.value;
         listContainer.appendChild(li);
+        let label = document.createElement("label");
+        label.innerHTML = "\u270e"; 
+        li.appendChild(label);
         let span = document.createElement("span");
         span.innerHTML = "\u00d7";
         li.appendChild(span);
@@ -39,6 +42,21 @@ listContainer.addEventListener("click", function(e){
         e.target.parentElement.remove();
         saveData();
     }
+    else if(e.target.tagName === "LABEL"){
+        let li = e.target.parentElement;
+        var newText = prompt("Edit task:", li.textContent.substring(0, li.textContent.length-2));
+        if (newText !== null) {
+            li.textContent = newText;
+            let label = document.createElement("label");
+            label.innerHTML = "\u270e"; 
+            li.appendChild(label);
+            let span = document.createElement("span");
+            span.innerHTML = "\u00d7";
+            li.appendChild(span);
+            saveData();
+        }
+    }
+
 }, false);
 
 function saveData() {
